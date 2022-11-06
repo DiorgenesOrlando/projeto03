@@ -16,7 +16,7 @@ public class Escalonador {
 		this.quantidadeProcessos = Integer.valueOf(this.array[0][0]);
 	}
 
-	public void definirEscalonador() {
+	public void definirEscalonador() throws Exception {
 		if(algoritmo.equalsIgnoreCase("FCFS")) {
 			System.out.println("FCFS");
 			Fcfs fcfs = new Fcfs(array,tamanhoArray);
