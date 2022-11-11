@@ -81,7 +81,7 @@ public class Rr extends Escalonador {
 
           } else {
             if (vetorAuxiliar[x][1] > finalExecucao) {
-              resto = ct[x] + vetorAuxiliar[x][1];
+              resto = ct[x] - vetorAuxiliar[x][1];
               int diferenca = vetorAuxiliar[x][1] - finalExecucao;
               finalExecucao += (diferenca);
               finalExecucao += vetorAuxiliar[x][2];
