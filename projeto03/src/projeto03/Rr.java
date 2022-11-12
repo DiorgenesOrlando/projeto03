@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Queue;
+import java.util.Map;
+import java.util.Set;
 
 public class Rr extends Escalonador {
   int vetorAuxiliar[][];
@@ -11,10 +14,12 @@ public class Rr extends Escalonador {
   int[] auxChegada = new int[tamanhoArray - 2];
   int[] ct = new int[tamanhoArray - 2];
   String[][] saidaGrafico = new String[tamanhoArray - 2][2];
+  int quantuM;
 
   public Rr(String[][] array, int tamanhoArray) {
     super(array, tamanhoArray);
     vetorAuxiliar = new int[tamanhoArray - 2][6];
+    quantuM = Integer.valueOf(array[1][1]);
     // TODO Auto-generated constructor stub
   }
 
@@ -68,7 +73,6 @@ public class Rr extends Escalonador {
 
     do {
       for (int x = 0; x < tamanho; x++) {
-
         if (vetorAuxiliar[x][1] == auxChegada[cont]) {
           System.out.println("P" + vetorAuxiliar[x][0]);
           saidaGrafico[contX][0] = String.format(" P %d  |", vetorAuxiliar[x][0]);
@@ -80,6 +84,7 @@ public class Rr extends Escalonador {
             ct[x] = finalExecucao;
 
           } else {
+            // Caso o processo ainda precise ser terminado
             if (vetorAuxiliar[x][1] > finalExecucao) {
               resto = ct[x] - vetorAuxiliar[x][1];
               int diferenca = vetorAuxiliar[x][1] - finalExecucao;
