@@ -26,7 +26,13 @@ public class Escalonador {
 			fcfs.imprimirGrafico();
 
 		} else if (algoritmo.equalsIgnoreCase("SJF")) {
-
+			System.out.println("SJF");
+			Sjf sjf = new Sjf(array, tamanhoArray);
+			// Arrays.sort(array[]);
+			sjf.gerarGrafico();
+			System.out.println("Grafico Gantt - SJF");
+			sjf.imprimirGrafico();
+			
 		} else if (algoritmo.equalsIgnoreCase("RR")) {
 			System.out.println("RR");
 			Rr rr = new Rr(array, tamanhoArray);
